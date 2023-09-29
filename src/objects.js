@@ -140,19 +140,11 @@ function translateToPirateTalk(phrase) {
 
 
 function wordCount(str) {
-  // Create an empty object
-  const wordCounts = {};
-  
-  if (!str || str.length === 0) {
-    console.log("String does not exist")
-    return wordCounts;
-  }
-  // split the string into an array and filter by unique
-  str = str.split(' ');
-  console.log(str);
-  
+  const wordCounts = {}; // Create an empty object
+  if (!str || str.length === 0) { return wordCounts;} // validate input
+
+  str = str.split(' '); // split the string into an array and filter by unique
   let uniqueVals = str.filter(onlyUnique); // filter automatically passes in the three arguments of value, index, and array
-  console.log(uniqueVals);
 
   uniqueVals.forEach(uniqueVal => {
     // iterate through the original string array and increment a counter for each instance
@@ -160,11 +152,9 @@ function wordCount(str) {
     str.forEach(value => {
       if (value === uniqueVal) count++;
     })
-    console.log(count);
-    wordCounts[uniqueVal] = count;  
+    wordCounts[uniqueVal] = count;  // add a key to the wordCounts object with the word and count
   })
   
-  console.log(wordCounts);
   return wordCounts;
 }
 
@@ -195,7 +185,9 @@ function onlyUnique(value, index, array) {
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailable(bug, month) {
+  return bug.availability.months.includes(month);
+}
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
@@ -238,7 +230,23 @@ function isBugAvailable(bug, month) {}
 //     12: [],
 //   }
 
-function buildBugHuntCalendar(bugs) {}
+function buildBugHuntCalendar(bugs) {
+  let calendar = {}; // create calendar object
+  
+  // iterate through each month.
+  for (let i = 1; i < 13; i++) {
+    // iterate through bugs list and see if a bug is available during a month (use isBugAvailable method above)
+    // if bug is available, add bug name to an array
+    // set that array as the key value for the month
+    let bugArray = [];
+
+    for (let bug of bugs) {
+      if (isBugAvailable(bug, i)) bugArray.push(bug.name);
+    }
+    calendar[i] = bugArray;
+  }
+  return calendar;
+}
 
 export {
   buildBugHuntCalendar,
