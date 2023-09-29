@@ -8,7 +8,11 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+let authBtn = document.getElementById("auth");
+authBtn.addEventListener('click', evt => {
+    if (authBtn.textContent === "Log in") authBtn.textContent = "Log out";
+    else if (authBtn.textContent === "Log out") authBtn.textContent = "Log in";
+})
 
 // Send an alert
 //
@@ -17,12 +21,17 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+let alertFrm = document.getElementById("send-alert");
+let alertInput = document.getElementById("alert-message");
+alertFrm.addEventListener('submit', evt => {
+    evt.preventDefault();
+    alert(alertInput.value);
+})
 
 // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
-// button (the one that says "Double-ulick to add an item"), a new list
+// button (the one that says "Double-click to add an item"), a new list
 // item should appear.
 //
 // In other words, whenever a user clicks on the button, just
@@ -34,7 +43,14 @@
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+let doubleClickBtn = document.getElementById("item-adder");
+let doubleClickList = document.getElementById('list');
+doubleClickBtn.addEventListener('click', evt => {
+    let newItem = document.createElement("li");
+    newItem.textContent = "Item"
+    doubleClickList.append(newItem);
+})
+
 
 // Change colors
 //
@@ -45,7 +61,25 @@
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+let blueBtn = document.getElementById("blue");
+let redBtn = document.getElementById("red");
+let colorWords = document.getElementsByClassName("changes-colors")
+
+blueBtn.addEventListener('click', evt => {
+    changeColors("blue");
+})
+redBtn.addEventListener('click', evt => {
+    changeColors("red");
+})
+
+const changeColors = (color) => {
+    console.log(color);
+    console.log(colorWords);
+    for (let node of colorWords) {
+        node.style.color = color;
+    }
+}
+
 
 // Calculate factorial
 //

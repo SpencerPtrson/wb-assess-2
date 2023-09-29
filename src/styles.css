@@ -4,13 +4,8 @@ body {
     font-family: sans-serif;
 }
 
-td {
-    padding: 5px;
-}
-
-
 #planets, td {
     margin-top:50px;
+    padding: 5px;
     border: 1px solid white;
 }
-
