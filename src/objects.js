@@ -137,16 +137,21 @@ function translateToPirateTalk(phrase) {
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
+
+
 function wordCount(str) {
   // Create an empty object
   const wordCounts = {};
-  if (!str || str.length === 0) return wordCounts;
-
+  
+  if (!str || str.length === 0) {
+    console.log("String does not exist")
+    return wordCounts;
+  }
   // split the string into an array and filter by unique
   str = str.split(' ');
   console.log(str);
   
-  uniqueVals = str.filter(onlyUnique); // filter automatically passes in the three arguments of value, index, and array
+  let uniqueVals = str.filter(onlyUnique); // filter automatically passes in the three arguments of value, index, and array
   console.log(uniqueVals);
 
   uniqueVals.forEach(uniqueVal => {
@@ -162,7 +167,6 @@ function wordCount(str) {
   console.log(wordCounts);
   return wordCounts;
 }
-
 
 function onlyUnique(value, index, array) {
   return array.indexOf(value) === index;
