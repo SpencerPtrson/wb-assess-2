@@ -13,9 +13,7 @@
 //     { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
-function getNames(people) {
-  return people.map(person => person.firstName + " " + person.lastName)
-}
+function getNames(people) { return people.map(person => person.firstName + " " + person.lastName) }
 
 
 
@@ -50,9 +48,7 @@ function getNameUsingDestructuring(person) {
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {
-  return people.filter(person => person.location === location)
-}
+function getPeopleByLocation(people, location) { return people.filter(person => person.location === location) }
 
 // Translate a phrase to pirate talk.
 //

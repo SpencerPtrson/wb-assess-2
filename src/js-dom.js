@@ -96,7 +96,23 @@ const changeColors = (color) => {
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-/// TODO: replace this with your code
+let factorialFrm = document.getElementById("factorial-calculator");
+let factorialInput = document.getElementById("factorial-input");
+let resultSpan = document.getElementById("result");
+factorialFrm.addEventListener('submit', evt => {
+    evt.preventDefault();
+    resultSpan.textContent = factorial(factorialInput.value);
+})
+
+const factorial = (num) => {
+    if (num === 0) return 1;
+
+    let result = num;
+    for (let i = 2; i < num; i++) {
+        result *= i;
+    }
+    return result;
+}
 
 // Validate a form
 //
@@ -113,4 +129,20 @@ const changeColors = (color) => {
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
 
-/// TODO: replace this with your code
+
+let wordFrm = document.getElementById("recommend-word");
+let wordInput = document.getElementById("word");
+let feedbackText = document.querySelector(".form-feedback");
+
+wordFrm.addEventListener('submit', evt => {
+    evt.preventDefault();
+    console.log(feedbackText);
+    if (wordInput.value.length >= 4) {
+        feedbackText.textContent = "Thanks for your submission!";
+        feedbackText.style.color = "green";
+    }
+    else {
+        feedbackText.textContent = "The word must be at least 4 characters long.";
+        feedbackText.style.color = "red";
+    }
+})
