@@ -13,7 +13,11 @@
 //     { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
-function getNames(people) {}
+function getNames(people) {
+  return people.map(person => person.firstName + " " + person.lastName)
+}
+
+
 
 // Given an object representing a person, return their full name (first name and last name).
 // You MUST use object destructuring in your solution.
@@ -24,7 +28,10 @@ function getNames(people) {}
 // Ex.:
 //   getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 //   => 'Gale Dekarios'
-function getNameUsingDestructuring(person) {}
+function getNameUsingDestructuring(person) {
+  const {firstName, lastName} = person;
+  return (firstName + " " + lastName)
+}
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
@@ -43,7 +50,9 @@ function getNameUsingDestructuring(person) {}
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {}
+function getPeopleByLocation(people, location) {
+  return people.filter(person => person.location === location)
+}
 
 // Translate a phrase to pirate talk.
 //
@@ -72,7 +81,54 @@ const EN_PIRATE_LOOKUP = {
   hello: 'ahoy',
 };
 
-function translateToPirateTalk(phrase) {}
+function translateToPirateTalk(phrase) {
+  phrase = phrase.split(' ');
+  let newString = ''
+
+  phrase.forEach(word => {
+    switch (word) {
+      case 'excuse':
+        newString += 'avast';
+        break;
+      case 'sir':
+      case 'friend':
+        newString += 'matey';
+        break;
+      case 'is':
+        newString += 'be';
+        break;
+      case 'restroom':
+        newString += 'head';
+        break;
+      case 'student':
+        newString += 'swabbie';
+        break;
+      case 'restaurant':
+        newString += 'galley';
+        break;
+      case 'your':
+        newString += 'yer';
+        break;
+      case 'are':
+        newString += 'yer';
+        break; 
+      case 'my':
+        newString += 'yer';
+        break;
+      case 'hotel':
+        newString += 'yer';
+        break;
+      case 'hello':
+        newString += 'ahoy';
+        break;
+      default:
+        newString += word;
+        break;
+    }
+    newString += ' ';
+  })
+  return newString.trim();
+}
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
@@ -81,7 +137,39 @@ function translateToPirateTalk(phrase) {}
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) {
+  // Create an empty object
+  const wordCounts = {};
+  if (!str || str.length === 0) return wordCounts;
+
+  // split the string into an array and filter by unique
+  str = str.split(' ');
+  console.log(str);
+  
+  uniqueVals = str.filter(onlyUnique); // filter automatically passes in the three arguments of value, index, and array
+  console.log(uniqueVals);
+
+  uniqueVals.forEach(uniqueVal => {
+    // iterate through the original string array and increment a counter for each instance
+    let count = 0;
+    str.forEach(value => {
+      if (value === uniqueVal) count++;
+    })
+    console.log(count);
+    wordCounts[uniqueVal] = count;  
+  })
+  
+  console.log(wordCounts);
+  return wordCounts;
+}
+
+
+function onlyUnique(value, index, array) {
+  return array.indexOf(value) === index;
+  // given a value, indexOf will find the first instance of it in the array
+  // if it's not the first instance of the value, the index argument won't match the result of indexOf, and thus return false, filtering out any duplicate array elements
+  // code was found on stackoverflow but I understand how it works
+}
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
