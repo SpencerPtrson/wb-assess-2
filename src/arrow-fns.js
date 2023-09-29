@@ -40,8 +40,7 @@ function evens(nums) { return nums.filter(num => num % 2 === 0)}
 //   createGreetings(['Clive', 'Jill', 'Torgal']);
 //   => ['Hello, Clive!', 'Hello, Jill!', 'Hello, Torgal!']
 function createGreetings(names) { 
-    console.log('Unaltered Names:', names)
-    return names.map(name => "Hello, " + name)
+    return names.map(name => "Hello, " + name + "!")
 }
 
 // Given an array of words, return a new array where each word is uppercased
