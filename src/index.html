@@ -7,5 +7,50 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body></body>
+  <body>
+    <form>
+      <label for="character-name">Character Name:</label>
+      <input type="text" id="character-name" >
+  
+      <div id="RadioGroup">
+        <label for="Jedi">Jedi</label>
+        <input name="alignment" type="radio" id="Jedi" value="jedi">
+  
+        <label for="Sith">Sith</label>
+        <input name="alignment" type="radio" id="Sith" value="sith">
+      </div>
+  
+      <label for="LightsaberColor">Lightsaber color</label>
+      <select name="lightsaber" id="LightsaberColor">
+        <option name="lightsaber" id="blue" value="blue">Blue</option>
+        <option name="lightsaber" id="green" value="green">Green</option>
+        <option name="lightsaber" id="red" value="red">Red</option>
+        <option name="lightsaber" id="purple" value="purple">Purple</option>
+      </select>
+
+      <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <table id="planets">
+      <tr>
+        <td>Planet</td> <td>Environment</td> <td>Population</td>
+      </tr>
+      <tr>
+        <td>Tatooine</td> <td>Desert</td> <td>200,000</td>
+      </tr>
+      <tr>
+        <td>Hoth</td> <td>Hoth</td> <td>0</td>
+      </tr>
+      <tr>
+        <td>Endor</td> <td>Forest</td> <td>30,000,000</td>
+      </tr>
+      <tr>
+        <td>Mustafar</td> <td>Lava</td> <td>10,000</td>
+      </tr>
+    </table>
+
+
+
+
+  </body>
 </html>

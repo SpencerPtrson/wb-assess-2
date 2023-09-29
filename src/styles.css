@@ -1,0 +1,16 @@
+body {
+    background: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+td {
+    padding: 5px;
+}
+
+
+#planets, td {
+    margin-top:50px;
+    border: 1px solid white;
+}
+
